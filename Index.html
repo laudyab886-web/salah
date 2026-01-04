@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Explore Nusantara</title>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* HEADER / BANNER */
+    header {
+      background-image: url("Gambar/banner eksplor nusantara.png");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    /* NAVIGATION */
+    nav {
+      background-color: #006699;
+      padding: 12px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* SECTION */
+    section {
+      padding: 30px;
+      background-color: white;
+      margin: 20px;
+      border-radius: 8px;
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      background: #fff;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.05);
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #006699;
+      font-weight: bold;
+    }
+
+    /* FORM */
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
+    form button {
+      padding: 10px 20px;
+      background-color: #006699;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* WAKTU */
+    #time-container {
+      text-align: center;
+      background-color: #eaeaea;
+      padding: 15px;
+      font-size: 14px;
+      margin: 20px;
+      border-radius: 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* MODAL IMAGE */
+    #imageModal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #imageModal img {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+
+    #imageModal span {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body onload="tampilkanWaktu()">
+
+  <!-- HEADER -->
+  <header>
+    <h1>Explore Nusantara</h1>
+    <p>Jelajahi Keindahan Wisata Indonesia</p>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">Tentang</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home">
+    <h2>Selamat Datang</h2>
+    <p>
+      Explore Nusantara merupakan sebuah website informasi wisata yang dibuat
+      untuk memperkenalkan berbagai destinasi wisata unggulan yang ada di Indonesia.
+      Melalui website ini, pengunjung dapat menemukan informasi mengenai keindahan
+      alam nusantara, mulai dari pantai, pegunungan, hingga destinasi wisata alam
+      yang telah dikenal hingga mancanegara. Website ini dirancang dengan tampilan
+      yang sederhana dan informatif agar mudah diakses oleh berbagai kalangan
+      masyarakat.
+    </p>
+
+    <p>
+      Dengan adanya Explore Nusantara, diharapkan dapat membantu meningkatkan
+      minat masyarakat untuk mengenal dan mengunjungi destinasi wisata lokal.
+      Selain itu, website ini juga bertujuan untuk menumbuhkan rasa cinta terhadap
+      kekayaan alam dan budaya Indonesia yang sangat beragam serta bernilai tinggi.
+    </p>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>Tentang Kami</h2>
+    <p>
+      Kami adalah sebuah media informasi digital yang berfokus pada penyediaan
+      konten seputar wisata Indonesia. Explore Nusantara hadir sebagai sarana
+      edukasi dan referensi bagi masyarakat yang ingin mengetahui berbagai
+      destinasi wisata yang tersebar di seluruh wilayah Indonesia, baik wisata
+      alam, wisata bahari, maupun wisata pegunungan.
+    </p>
+
+    <p>
+      Melalui website ini, kami berupaya menyajikan informasi wisata secara ringkas,
+      menarik, dan mudah dipahami. Destinasi yang ditampilkan di antaranya adalah
+      Raja Ampat dengan keindahan lautnya, Nusa Penida yang memiliki panorama pantai
+      eksotis, serta Gunung Bromo yang terkenal dengan pesona alam pegunungannya.
+      Kami berharap Explore Nusantara dapat menjadi sumber informasi yang bermanfaat
+      sekaligus memberikan inspirasi bagi para wisatawan untuk menjelajahi keindahan
+      alam Indonesia.
+    </p>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2>Gallery Wisata</h2>
+
+    <div class="gallery">
+
+      <div class="card">
+        <img src="Gambar/raja ampat.jpeg" alt="Raja Ampat"
+             onclick="openImage(this.src)">
+        <p>
+          <a href="https://en.wikipedia.org/wiki/Raja_Ampat_Islands" target="_blank">
+            Raja Ampat – Papua
+          </a>
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="Gambar/nusa penida.jpeg" alt="Nusa Penida"
+             onclick="openImage(this.src)">
+        <p>
+          <a href="https://en.wikipedia.org/wiki/Nusa_Penida" target="_blank">
+            Nusa Penida – Bali
+          </a>
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="Gambar/bromo.jpeg" alt="Gunung Bromo"
+             onclick="openImage(this.src)">
+        <p>
+          <a href="https://id.wikipedia.org/wiki/Gunung_Bromo" target="_blank">
+            Gunung Bromo – Jawa Timur
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Form Kontak</h2>
+    <form>
+      <label>Nama</label>
+      <input type="text" required>
+
+      <label>Email</label>
+      <input type="email" required>
+
+      <label>Pesan</label>
+      <textarea rows="4"></textarea>
+
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <!-- WAKTU -->
+  <div id="time-container">
+    Waktu Sekarang: <span id="waktu"></span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 | LAUDYA CINTYA BELLA | 251011700272 | SIFP005</p>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="imageModal">
+    <span onclick="closeImage()">×</span>
+    <img id="modalImg">
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function tampilkanWaktu() {
+      const now = new Date();
+      document.getElementById("waktu").innerHTML = now.toLocaleString();
+    }
+    setInterval(tampilkanWaktu, 1000);
+
+    function openImage(src) {
+      document.getElementById("imageModal").style.display = "flex";
+      document.getElementById("modalImg").src = src;
+    }
+
+    function closeImage() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
