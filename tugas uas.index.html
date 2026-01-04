@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Explore Nusantara</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-image: url(banner\ eksplor\ nusantara.png);
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    nav {
+      background-color: #006699;
+      padding: 12px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 30px;
+      background-color: white;
+      margin: 20px;
+      border-radius: 8px;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
+    form button {
+      padding: 10px 20px;
+      background-color: #006699;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* WAKTU */
+    #time-container {
+      text-align: center;
+      background-color: #eaeaea;
+      padding: 15px;
+      font-size: 14px;
+      color: #333;
+      margin: 20px;
+      border-radius: 8px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body onload="tampilkanWaktu()">
+
+  <!-- Banner -->
+  <header>
+    <h1>Explore Nusantara</h1>
+    <p>Jelajahi Keindahan Wisata Indonesia</p>
+  </header>
+
+  <!-- Navigasi -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">Tentang</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+
+  <!-- Home -->
+  <section id="home">
+    <h2>Selamat Datang</h2>
+    <p>Explore Nusantara adalah website yang menyajikan berbagai destinasi wisata terbaik di Indonesia.</p>
+  </section>
+
+ <!-- Content Tentang -->
+<section id="about">
+  <h2>Tentang Kami</h2>
+  <p>
+    Kami adalah media informasi wisata yang menghadirkan keindahan nusantara,
+    mulai dari pantai eksotis Raja Ampat, pesona alam Nusa Penida,
+    hingga megahnya Gunung Bromo. Melalui website ini, kami ingin
+    berbagi inspirasi perjalanan dan mengenalkan kekayaan alam Indonesia
+    kepada semua orang.
+  </p>
+</section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2>Gallery Wisata</h2>
+    <div class="gallery">
+      <div class="card">
+        <img src="raja ampat.jpeg" alt="Raja Ampat">
+        <p>Raja Ampat – Papua</p>
+      </div>
+
+      <div class="card">
+        <img src="nusa penida.jpeg" alt="Bali">
+        <p>Nusa Penida – Bali</p>
+      </div>
+
+      <div class="card">
+        <img src="bromo.jpeg" alt="Bromo">
+        <p>Gunung Bromo – Jawa Timur</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section id="contact">
+    <h2>Form Kontak</h2>
+    <form>
+      <label>Nama</label>
+      <input type="text" required>
+
+      <label>Email</label>
+      <input type="email" required>
+
+      <label>Pesan</label>
+      <textarea rows="4"></textarea>
+
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <!-- WAKTU DI ATAS FOOTER -->
+  <div id="time-container">
+    Waktu Sekarang: <span id="waktu"></span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 | LAUDYA CINTYA BELLA | 251011700272 | SIFP005</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function tampilkanWaktu() {
+      const now = new Date();
+      document.getElementById("waktu").innerHTML = now.toLocaleString();
+    }
+    setInterval(tampilkanWaktu, 1000);
+  </script>
+
+</body>
+</html>
